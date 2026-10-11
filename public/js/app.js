@@ -1,24 +1,25 @@
 /**
  * ADITYA GUPTA - ELECTRICAL ENGINEERING @ IIT KHARAGPUR
- * High-performance Frontend Application Logic
+ * Universal Frontend Controller: Supports both GitHub Pages (Static) & Node.js Backend
  */
 
 // Application State
 const state = {
   portfolio: null,
   activeCertCategory: 'all',
-  certSearchTerm: ''
+  certSearchTerm: '',
+  isStaticMode: false
 };
 
 // SVG Badge Icons Registry
 const BADGE_ICONS = {
-  aws: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M18.8 17.5c-2.4 1.8-5.6 2.5-8.6 1.8-3.1-.7-5.8-2.6-7.5-5.2-.4-.6.1-1.3.8-.9 2.5 1.4 5.3 2 8.3 1.7 2.6-.3 5-1.4 7-3.1.5-.4 1.1.2.7.7z" fill="#FF9900"/><path d="M19.7 15.7c-.3-.4-1.9-.2-2.8-.1-.3 0-.4-.2-.2-.4 1.2-1.3 3.1-.9 3.3-.7.3.3.1 2.2-.9 3.2-.2.2-.4.1-.3-.2.3-.6.9-1.4.9-1.8z" fill="#FF9900"/><path d="M8.2 7.7v4.6c0 .8-.5 1.2-1.2 1.2-.6 0-1-.3-1.1-.9L4 6.8h1.6l1.2 4.3 1.2-4.3h1.7l1.2 4.3 1.2-4.3h1.6l-1.9 5.8c-.1.6-.5.9-1.1.9-.7 0-1.2-.4-1.2-1.2V7.7H8.2z" fill="#ffffff"/></svg>`,
-  gcp: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#4285F4"/><path d="M12 8l4 4h-3v4h-2v-4H8l4-4z" fill="#ffffff"/></svg>`,
-  meta: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M12 6.5c-3.1 0-5.7 2.4-7.4 5.2-1.1 1.8-1.9 3.5-2.3 4.6-.2.5.2 1 .7 1 .2 0 .5-.1.6-.3.4-.9 1.2-2.5 2.2-4.1 1.5-2.5 3.7-4.6 6.2-4.6 2.3 0 4.1 1.7 4.9 3.9.7 1.9 2.5 3.3 4.7 3.3 2.9 0 5.2-2.3 5.2-5.2S21.5 5 18.6 5c-2.4 0-4.5 1.6-5.1 3.9-.3-.9-.9-1.7-1.5-2.4z" fill="#0081FB"/></svg>`,
-  mongodb: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M12 2C11.5 2 9 7.2 9 12.3c0 4.2 2 7.7 3 9.7 1-2 3-5.5 3-9.7C15 7.2 12.5 2 12 2z" fill="#00ED64"/><path d="M12 2v20c.5-.3 1.5-1.5 2-3 1.2-3.6.5-12.7-2-17z" fill="#00684A"/></svg>`,
-  kubernetes: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><polygon points="12 2 21 7.2 21 16.8 12 22 3 16.8 3 7.2" stroke="#326CE5" stroke-width="2" fill="rgba(50, 108, 229, 0.2)"/><circle cx="12" cy="12" r="4" fill="#326CE5"/></svg>`,
-  nodejs: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><polygon points="12 2 21.5 7.5 21.5 18.5 12 24 2.5 18.5 2.5 7.5" fill="#339933"/><text x="12" y="15" fill="#ffffff" font-size="7" font-weight="bold" text-anchor="middle" font-family="sans-serif">NODE</text></svg>`,
-  default: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(6, 182, 212, 0.2)" stroke="#06b6d4" stroke-width="1.8"/><circle cx="12" cy="10" r="3" fill="#06b6d4"/></svg>`
+  aws: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><path d="M18.8 17.5c-2.4 1.8-5.6 2.5-8.6 1.8-3.1-.7-5.8-2.6-7.5-5.2-.4-.6.1-1.3.8-.9 2.5 1.4 5.3 2 8.3 1.7 2.6-.3 5-1.4 7-3.1.5-.4 1.1.2.7.7z" fill="#FF9900"/><path d="M19.7 15.7c-.3-.4-1.9-.2-2.8-.1-.3 0-.4-.2-.2-.4 1.2-1.3 3.1-.9 3.3-.7.3.3.1 2.2-.9 3.2-.2.2-.4.1-.3-.2.3-.6.9-1.4.9-1.8z" fill="#FF9900"/><path d="M8.2 7.7v4.6c0 .8-.5 1.2-1.2 1.2-.6 0-1-.3-1.1-.9L4 6.8h1.6l1.2 4.3 1.2-4.3h1.7l1.2 4.3 1.2-4.3h1.6l-1.9 5.8c-.1.6-.5.9-1.1.9-.7 0-1.2-.4-1.2-1.2V7.7H8.2z" fill="#ffffff"/></svg>`,
+  gcp: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#4285F4"/><path d="M12 8l4 4h-3v4h-2v-4H8l4-4z" fill="#ffffff"/></svg>`,
+  meta: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><path d="M12 6.5c-3.1 0-5.7 2.4-7.4 5.2-1.1 1.8-1.9 3.5-2.3 4.6-.2.5.2 1 .7 1 .2 0 .5-.1.6-.3.4-.9 1.2-2.5 2.2-4.1 1.5-2.5 3.7-4.6 6.2-4.6 2.3 0 4.1 1.7 4.9 3.9.7 1.9 2.5 3.3 4.7 3.3 2.9 0 5.2-2.3 5.2-5.2S21.5 5 18.6 5c-2.4 0-4.5 1.6-5.1 3.9-.3-.9-.9-1.7-1.5-2.4z" fill="#0081FB"/></svg>`,
+  mongodb: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><path d="M12 2C11.5 2 9 7.2 9 12.3c0 4.2 2 7.7 3 9.7 1-2 3-5.5 3-9.7C15 7.2 12.5 2 12 2z" fill="#00ED64"/><path d="M12 2v20c.5-.3 1.5-1.5 2-3 1.2-3.6.5-12.7-2-17z" fill="#00684A"/></svg>`,
+  kubernetes: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><polygon points="12 2 21 7.2 21 16.8 12 22 3 16.8 3 7.2" stroke="#326CE5" stroke-width="2" fill="rgba(50, 108, 229, 0.2)"/><circle cx="12" cy="12" r="4" fill="#326CE5"/></svg>`,
+  nodejs: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><polygon points="12 2 21.5 7.5 21.5 18.5 12 24 2.5 18.5 2.5 7.5" fill="#339933"/><text x="12" y="15" fill="#ffffff" font-size="7" font-weight="bold" text-anchor="middle" font-family="sans-serif">NODE</text></svg>`,
+  default: `<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(6, 182, 212, 0.2)" stroke="#06b6d4" stroke-width="1.8"/><circle cx="12" cy="10" r="3" fill="#06b6d4"/></svg>`
 };
 
 // ============================================================================
@@ -29,17 +30,49 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchPortfolio();
 });
 
-// Fetch complete portfolio data from backend
+// Dual-mode fetch: Try backend API, fallback to static JSON / localStorage
 async function fetchPortfolio() {
   try {
-    const res = await fetch('/api/portfolio');
-    if (!res.ok) throw new Error('Failed to load portfolio data');
-    const json = await res.json();
-    state.portfolio = json.data;
+    // 1. Try fetching from Node.js Express API if running locally
+    const res = await fetch('./api/portfolio');
+    if (res.ok) {
+      const json = await res.json();
+      state.portfolio = json.data;
+      state.isStaticMode = false;
+      renderAll();
+      return;
+    }
+  } catch (err) {
+    // Backend API is not available (normal on GitHub Pages)
+  }
+
+  // 2. Static Mode (GitHub Pages or local file server)
+  state.isStaticMode = true;
+
+  try {
+    // Check if custom edits/uploads exist in browser localStorage
+    const cached = localStorage.getItem('aditya_portfolio_storage');
+    if (cached) {
+      state.portfolio = JSON.parse(cached);
+      renderAll();
+      return;
+    }
+
+    // Otherwise load the bundled static data/portfolio.json
+    const staticRes = await fetch('./data/portfolio.json');
+    if (!staticRes.ok) throw new Error('Could not load portfolio.json');
+    state.portfolio = await staticRes.json();
     renderAll();
   } catch (err) {
-    console.error('Error loading portfolio:', err);
-    showToast('Failed to connect to backend server. Ensure node server.js is running.', 'error');
+    console.error('Error loading portfolio data:', err);
+    showToast('Could not load portfolio data. Please refresh.', 'error');
+  }
+}
+
+// Persist data locally when on static host (GitHub Pages)
+function persistStaticState() {
+  if (state.portfolio) {
+    localStorage.setItem('aditya_portfolio_storage', JSON.stringify(state.portfolio));
   }
 }
 
@@ -153,7 +186,7 @@ function renderCommitments(commitments) {
 
   if (commitments.length === 0) {
     container.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">
+      <div style="grid-column: 1/-1; text-align: center; padding: 2.5rem; color: var(--text-muted);">
         <p>No active commitments listed. Click "Add New Commitment" to showcase what you're working on!</p>
       </div>
     `;
@@ -166,7 +199,7 @@ function renderCommitments(commitments) {
       ? `<ul class="deliverables-list">
           ${c.deliverables.map(d => `
             <li class="deliverable-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span>${escapeHtml(d)}</span>
@@ -211,7 +244,7 @@ function renderCommitments(commitments) {
             <span>Target: <strong>${escapeHtml(c.target || 'Ongoing')}</strong></span>
             <div class="commitment-actions">
               <button class="btn-icon-danger" onclick="deleteCommitment('${c.id}')" title="Delete Commitment">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="3 6 5 6 21 6"></polyline>
                   <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                 </svg>
@@ -229,10 +262,9 @@ function renderCertifications(certs) {
   const container = document.getElementById('certifications-container');
   if (!container) return;
 
-  // Filter based on category and search
   let filtered = certs.filter(c => {
     const matchesCat = state.activeCertCategory === 'all' || 
-      (c.category && c.category.toLowerCase().includes(state.activeCertCategory.toLowerCase()));
+      (c.category && c.category.toLowerCase() === state.activeCertCategory.toLowerCase());
     
     const query = state.certSearchTerm.toLowerCase();
     const matchesSearch = !query || 
@@ -296,7 +328,7 @@ function renderCertifications(certs) {
         <div class="cert-card-footer">
           <div class="cert-actions-left">
             <button class="btn-view-credential" onclick="openCertViewer('${c.id}')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
                 <polygon points="10 8 16 12 10 16 10 8"></polygon>
               </svg>
@@ -305,7 +337,7 @@ function renderCertifications(certs) {
 
             ${c.credentialUrl && c.credentialUrl !== '#' ? `
               <a href="${escapeHtml(c.credentialUrl)}" target="_blank" rel="noopener noreferrer" class="link-btn" title="External Verification">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
                   <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -315,7 +347,7 @@ function renderCertifications(certs) {
           </div>
 
           <button class="btn-icon-danger" onclick="deleteCertification('${c.id}')" title="Remove Certificate">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6"></polyline>
               <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
             </svg>
@@ -325,18 +357,18 @@ function renderCertifications(certs) {
     `;
   }).join('');
 
-  // Append Interactive "+ Upload Card" at end of grid
+  // Interactive "+ Upload Card" inside grid
   const uploadDropCardHtml = `
     <div class="upload-drop-card" onclick="openModalWithTab('tab-upload-cert')">
       <div class="upload-icon-circle">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="17 8 12 3 7 8"></polyline>
           <line x1="12" y1="3" x2="12" y2="15"></line>
         </svg>
       </div>
       <h3 class="upload-card-title">Add New Certificate</h3>
-      <p class="upload-card-subtitle">Upload your credential image, PDF file, or badge details.</p>
+      <p class="upload-card-subtitle">Upload your credential image, PDF, or certificate details.</p>
       <button class="btn btn-secondary btn-sm" type="button">
         + Upload Credential
       </button>
@@ -358,7 +390,7 @@ function renderProjects(projects) {
 
   container.innerHTML = projects.map(p => {
     const techTagsHtml = (p.techStack && p.techStack.length)
-      ? `<div class="tags-row" style="margin-bottom:1.25rem;">
+      ? `<div class="tags-row" style="margin-bottom:1rem;">
           ${p.techStack.map(t => `<span class="tag-chip">${escapeHtml(t)}</span>`).join('')}
          </div>`
       : '';
@@ -373,7 +405,7 @@ function renderProjects(projects) {
 
           ${p.metrics ? `
             <div class="project-metrics-box">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
                 <polyline points="16 7 22 7 22 13"></polyline>
               </svg>
@@ -388,7 +420,7 @@ function renderProjects(projects) {
           <div class="project-links">
             ${p.liveUrl && p.liveUrl !== '#' ? `
               <a href="${escapeHtml(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="link-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polygon points="10 8 16 12 10 16 10 8"></polygon>
                 </svg>
@@ -398,7 +430,7 @@ function renderProjects(projects) {
 
             ${p.githubUrl && p.githubUrl !== '#' ? `
               <a href="${escapeHtml(p.githubUrl)}" target="_blank" rel="noopener noreferrer" class="link-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                 </svg>
                 <span>Code Repo</span>
@@ -407,7 +439,7 @@ function renderProjects(projects) {
           </div>
 
           <button class="btn-icon-danger" onclick="deleteProject('${p.id}')" title="Delete Project">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6"></polyline>
               <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
             </svg>
@@ -456,7 +488,7 @@ function renderAchievements(achievements) {
     <article class="glass-panel achievement-card" id="${a.id}">
       <div>
         <div class="achievement-top">
-          <span style="font-size:0.75rem; text-transform:uppercase; color:var(--accent-amber); font-weight:700;">
+          <span style="font-size:0.72rem; text-transform:uppercase; color:var(--accent-amber); font-weight:700;">
             ${escapeHtml(a.category || 'Honors')}
           </span>
           <span class="achievement-year">${escapeHtml(a.year || '')}</span>
@@ -466,9 +498,9 @@ function renderAchievements(achievements) {
         <p class="achievement-desc">${escapeHtml(a.description || '')}</p>
       </div>
 
-      <div style="display:flex; justify-content:flex-end; margin-top:1rem;">
+      <div style="display:flex; justify-content:flex-end; margin-top:0.85rem;">
         <button class="btn-icon-danger" onclick="deleteAchievement('${a.id}')" title="Delete Honor">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="3 6 5 6 21 6"></polyline>
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
           </svg>
@@ -510,14 +542,15 @@ function initEventListeners() {
   const btnUploadCertHero = document.getElementById('btn-upload-cert-hero');
   const btnAddProject = document.getElementById('btn-add-project-trigger');
   const btnAddAch = document.getElementById('btn-add-achievement-trigger');
+  const btnExportJson = document.getElementById('btn-export-json');
 
-  // Open modal handlers
   if (btnOpenManage) btnOpenManage.addEventListener('click', () => openModalWithTab('tab-upload-cert'));
   if (btnQuickEdit) btnQuickEdit.addEventListener('click', () => openModalWithTab('tab-edit-position'));
   if (btnAddCommitment) btnAddCommitment.addEventListener('click', () => openModalWithTab('tab-add-commitment'));
   if (btnUploadCertHero) btnUploadCertHero.addEventListener('click', () => openModalWithTab('tab-upload-cert'));
   if (btnAddProject) btnAddProject.addEventListener('click', () => openModalWithTab('tab-add-project'));
   if (btnAddAch) btnAddAch.addEventListener('click', () => openModalWithTab('tab-add-achievement'));
+  if (btnExportJson) btnExportJson.addEventListener('click', downloadPortfolioJson);
 
   if (btnCloseManage) {
     btnCloseManage.addEventListener('click', () => {
@@ -525,7 +558,6 @@ function initEventListeners() {
     });
   }
 
-  // Close modal when clicking on backdrop
   if (manageModal) {
     manageModal.addEventListener('click', (e) => {
       if (e.target === manageModal) manageModal.classList.remove('active');
@@ -665,7 +697,6 @@ function setupFileUploadDropzone() {
       };
       reader.readAsDataURL(file);
     } else {
-      // PDF or non-image
       previewImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="%23f43f5e"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
     }
   }
@@ -680,7 +711,7 @@ function setupFileUploadDropzone() {
 }
 
 // ============================================================================
-// FORM SUBMISSION HANDLERS
+// FORM SUBMISSION HANDLERS (HYBRID DUAL-MODE)
 // ============================================================================
 function setupFormSubmissions() {
   // 1. Upload Certificate Form
@@ -692,26 +723,74 @@ function setupFormSubmissions() {
       btn.disabled = true;
       btn.textContent = 'Uploading...';
 
-      try {
-        const formData = new FormData(formCert);
-        const res = await fetch('/api/certifications', {
-          method: 'POST',
-          body: formData
-        });
+      const fileInput = document.getElementById('cert-file-input');
+      const file = fileInput?.files?.[0];
 
-        const data = await res.json();
-        if (!res.ok || !data.success) {
-          throw new Error(data.message || 'Error uploading certificate');
+      // If backend mode is active, attempt POST first
+      if (!state.isStaticMode) {
+        try {
+          const formData = new FormData(formCert);
+          const res = await fetch('./api/certifications', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await res.json();
+          if (res.ok && data.success) {
+            showToast('Certificate published successfully!', 'success');
+            finishCertUpload();
+            await fetchPortfolio();
+            return;
+          }
+        } catch (err) {
+          console.warn('Backend upload failed, switching to static mode:', err);
         }
+      }
 
-        showToast('Certificate successfully published to portfolio!', 'success');
+      // Static Mode (GitHub Pages) fallback: Read file as Data URL
+      let fileUrl = '';
+      if (file) {
+        try {
+          fileUrl = await readFileAsDataURL(file);
+        } catch (err) {
+          console.warn('File read error:', err);
+        }
+      }
+
+      const skillsInput = document.getElementById('cert-skills-input').value;
+      const skillsList = skillsInput ? skillsInput.split(',').map(s => s.trim()).filter(Boolean) : [];
+
+      const newCert = {
+        id: 'cert-' + Date.now(),
+        title: document.getElementById('cert-title-input').value.trim(),
+        issuer: document.getElementById('cert-issuer-input').value.trim(),
+        category: document.getElementById('cert-category-select').value,
+        badgeIcon: document.getElementById('cert-badge-select').value,
+        issueDate: document.getElementById('cert-issue-date').value || new Date().toISOString().split('T')[0],
+        expiryDate: document.getElementById('cert-expiry-date').value || 'No Expiration',
+        credentialId: document.getElementById('cert-id-input').value.trim() || 'ID-' + Math.floor(100000 + Math.random() * 900000),
+        credentialUrl: document.getElementById('cert-url-input').value.trim() || '#',
+        skills: skillsList,
+        fileUrl
+      };
+
+      if (!state.portfolio) state.portfolio = {};
+      if (!state.portfolio.certifications) state.portfolio.certifications = [];
+      state.portfolio.certifications.unshift(newCert);
+
+      if (state.portfolio.profile && state.portfolio.profile.stats) {
+        state.portfolio.profile.stats.certifications = state.portfolio.certifications.length.toString();
+      }
+
+      persistStaticState();
+      renderAll();
+      showToast('Certificate successfully saved to your portfolio!', 'success');
+      finishCertUpload();
+
+      function finishCertUpload() {
         formCert.reset();
         document.getElementById('cert-file-preview').style.display = 'none';
         document.getElementById('manage-modal').classList.remove('active');
-        await fetchPortfolio();
-      } catch (err) {
-        showToast(err.message, 'error');
-      } finally {
         btn.disabled = false;
         btn.innerHTML = `
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -728,33 +807,41 @@ function setupFormSubmissions() {
   if (formPos) {
     formPos.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const payload = {
-        currentPosition: {
-          role: document.getElementById('input-pos-role').value.trim(),
-          company: document.getElementById('input-pos-company').value.trim(),
-          period: document.getElementById('input-pos-period').value.trim(),
-          location: document.getElementById('input-pos-location').value.trim(),
-          status: document.getElementById('input-pos-status').value.trim(),
-          focus: document.getElementById('input-pos-focus').value.trim(),
-          availability: document.getElementById('input-pos-avail').value.trim()
-        }
+      const posData = {
+        role: document.getElementById('input-pos-role').value.trim(),
+        company: document.getElementById('input-pos-company').value.trim(),
+        period: document.getElementById('input-pos-period').value.trim(),
+        location: document.getElementById('input-pos-location').value.trim(),
+        status: document.getElementById('input-pos-status').value.trim(),
+        focus: document.getElementById('input-pos-focus').value.trim(),
+        availability: document.getElementById('input-pos-avail').value.trim()
       };
 
-      try {
-        const res = await fetch('/api/profile', {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.message || 'Failed to update position');
-
-        showToast('Current position & research focus updated!', 'success');
-        document.getElementById('manage-modal').classList.remove('active');
-        await fetchPortfolio();
-      } catch (err) {
-        showToast(err.message, 'error');
+      if (!state.isStaticMode) {
+        try {
+          const res = await fetch('./api/profile', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ currentPosition: posData })
+          });
+          if (res.ok) {
+            showToast('Current position updated!', 'success');
+            document.getElementById('manage-modal').classList.remove('active');
+            await fetchPortfolio();
+            return;
+          }
+        } catch (err) {
+          console.warn('Backend update failed:', err);
+        }
       }
+
+      // Static mode update
+      if (!state.portfolio.profile) state.portfolio.profile = {};
+      state.portfolio.profile.currentPosition = posData;
+      persistStaticState();
+      renderAll();
+      showToast('Current position & focus updated!', 'success');
+      document.getElementById('manage-modal').classList.remove('active');
     });
   }
 
@@ -763,33 +850,48 @@ function setupFormSubmissions() {
   if (formCommitment) {
     formCommitment.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const payload = {
+      const techInput = document.getElementById('input-com-tech').value.trim();
+      const delivInput = document.getElementById('input-com-deliv').value.trim();
+
+      const commitmentData = {
+        id: 'commit-' + Date.now(),
         title: document.getElementById('input-com-title').value.trim(),
         type: document.getElementById('input-com-type').value.trim(),
         status: document.getElementById('input-com-status').value.trim(),
         progress: Number(document.getElementById('input-com-progress').value) || 50,
         target: document.getElementById('input-com-target').value.trim(),
         description: document.getElementById('input-com-desc').value.trim(),
-        techStack: document.getElementById('input-com-tech').value.trim(),
-        deliverables: document.getElementById('input-com-deliv').value.trim()
+        techStack: techInput ? techInput.split(',').map(s => s.trim()).filter(Boolean) : [],
+        deliverables: delivInput ? delivInput.split('\n').map(s => s.trim()).filter(Boolean) : []
       };
 
-      try {
-        const res = await fetch('/api/commitments', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.message || 'Failed to add commitment');
-
-        showToast('New commitment & active research added!', 'success');
-        formCommitment.reset();
-        document.getElementById('manage-modal').classList.remove('active');
-        await fetchPortfolio();
-      } catch (err) {
-        showToast(err.message, 'error');
+      if (!state.isStaticMode) {
+        try {
+          const res = await fetch('./api/commitments', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(commitmentData)
+          });
+          if (res.ok) {
+            showToast('New commitment added!', 'success');
+            formCommitment.reset();
+            document.getElementById('manage-modal').classList.remove('active');
+            await fetchPortfolio();
+            return;
+          }
+        } catch (err) {
+          console.warn('Backend error:', err);
+        }
       }
+
+      // Static mode
+      if (!state.portfolio.commitments) state.portfolio.commitments = [];
+      state.portfolio.commitments.unshift(commitmentData);
+      persistStaticState();
+      renderAll();
+      showToast('Commitment added!', 'success');
+      formCommitment.reset();
+      document.getElementById('manage-modal').classList.remove('active');
     });
   }
 
@@ -798,23 +900,48 @@ function setupFormSubmissions() {
   if (formProj) {
     formProj.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const formData = new FormData(formProj);
+      const techInput = document.getElementById('input-proj-tech').value.trim();
 
-      try {
-        const res = await fetch('/api/projects', {
-          method: 'POST',
-          body: formData
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.message || 'Failed to save project');
+      const projectData = {
+        id: 'proj-' + Date.now(),
+        title: document.getElementById('input-proj-title').value.trim(),
+        category: document.getElementById('input-proj-category').value,
+        subtitle: document.getElementById('input-proj-subtitle').value.trim(),
+        description: document.getElementById('input-proj-desc').value.trim(),
+        metrics: document.getElementById('input-proj-metrics').value.trim(),
+        techStack: techInput ? techInput.split(',').map(s => s.trim()).filter(Boolean) : [],
+        liveUrl: document.getElementById('input-proj-live').value.trim() || '#',
+        githubUrl: document.getElementById('input-proj-github').value.trim() || '#',
+        featured: true
+      };
 
-        showToast('Project added to showcase!', 'success');
-        formProj.reset();
-        document.getElementById('manage-modal').classList.remove('active');
-        await fetchPortfolio();
-      } catch (err) {
-        showToast(err.message, 'error');
+      if (!state.isStaticMode) {
+        try {
+          const formData = new FormData(formProj);
+          const res = await fetch('./api/projects', {
+            method: 'POST',
+            body: formData
+          });
+          if (res.ok) {
+            showToast('Project added!', 'success');
+            formProj.reset();
+            document.getElementById('manage-modal').classList.remove('active');
+            await fetchPortfolio();
+            return;
+          }
+        } catch (err) {
+          console.warn('Backend project error:', err);
+        }
       }
+
+      // Static mode
+      if (!state.portfolio.projects) state.portfolio.projects = [];
+      state.portfolio.projects.unshift(projectData);
+      persistStaticState();
+      renderAll();
+      showToast('Project added!', 'success');
+      formProj.reset();
+      document.getElementById('manage-modal').classList.remove('active');
     });
   }
 
@@ -823,7 +950,8 @@ function setupFormSubmissions() {
   if (formAch) {
     formAch.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const payload = {
+      const achData = {
+        id: 'ach-' + Date.now(),
         title: document.getElementById('input-ach-title').value.trim(),
         category: document.getElementById('input-ach-category').value.trim(),
         organization: document.getElementById('input-ach-org').value.trim(),
@@ -831,80 +959,132 @@ function setupFormSubmissions() {
         description: document.getElementById('input-ach-desc').value.trim()
       };
 
-      try {
-        const res = await fetch('/api/achievements', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.message || 'Failed to add achievement');
-
-        showToast('Honor & Achievement recorded!', 'success');
-        formAch.reset();
-        document.getElementById('manage-modal').classList.remove('active');
-        await fetchPortfolio();
-      } catch (err) {
-        showToast(err.message, 'error');
+      if (!state.isStaticMode) {
+        try {
+          const res = await fetch('./api/achievements', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(achData)
+          });
+          if (res.ok) {
+            showToast('Achievement recorded!', 'success');
+            formAch.reset();
+            document.getElementById('manage-modal').classList.remove('active');
+            await fetchPortfolio();
+            return;
+          }
+        } catch (err) {
+          console.warn('Backend achievement error:', err);
+        }
       }
+
+      // Static mode
+      if (!state.portfolio.achievements) state.portfolio.achievements = [];
+      state.portfolio.achievements.unshift(achData);
+      persistStaticState();
+      renderAll();
+      showToast('Achievement recorded!', 'success');
+      formAch.reset();
+      document.getElementById('manage-modal').classList.remove('active');
     });
   }
 }
 
 // ============================================================================
-// DELETE ACTIONS
+// DELETE ACTIONS (HYBRID)
 // ============================================================================
 window.deleteCertification = async function(id) {
   if (!confirm('Are you sure you want to remove this certification?')) return;
-  try {
-    const res = await fetch(`/api/certifications/${id}`, { method: 'DELETE' });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    showToast('Certification removed', 'info');
-    await fetchPortfolio();
-  } catch (err) {
-    showToast(err.message, 'error');
+  if (!state.isStaticMode) {
+    try {
+      const res = await fetch(`./api/certifications/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        showToast('Certification removed', 'info');
+        await fetchPortfolio();
+        return;
+      }
+    } catch (e) {
+      console.warn('Backend delete error, doing local delete');
+    }
   }
+
+  state.portfolio.certifications = state.portfolio.certifications.filter(c => c.id !== id);
+  if (state.portfolio.profile?.stats) {
+    state.portfolio.profile.stats.certifications = state.portfolio.certifications.length.toString();
+  }
+  persistStaticState();
+  renderAll();
+  showToast('Certification removed', 'info');
 };
 
 window.deleteCommitment = async function(id) {
   if (!confirm('Are you sure you want to remove this commitment?')) return;
-  try {
-    const res = await fetch(`/api/commitments/${id}`, { method: 'DELETE' });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    showToast('Commitment removed', 'info');
-    await fetchPortfolio();
-  } catch (err) {
-    showToast(err.message, 'error');
+  if (!state.isStaticMode) {
+    try {
+      const res = await fetch(`./api/commitments/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        showToast('Commitment removed', 'info');
+        await fetchPortfolio();
+        return;
+      }
+    } catch (e) {}
   }
+  state.portfolio.commitments = state.portfolio.commitments.filter(c => c.id !== id);
+  persistStaticState();
+  renderAll();
+  showToast('Commitment removed', 'info');
 };
 
 window.deleteProject = async function(id) {
   if (!confirm('Are you sure you want to remove this project?')) return;
-  try {
-    const res = await fetch(`/api/projects/${id}`, { method: 'DELETE' });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    showToast('Project removed', 'info');
-    await fetchPortfolio();
-  } catch (err) {
-    showToast(err.message, 'error');
+  if (!state.isStaticMode) {
+    try {
+      const res = await fetch(`./api/projects/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        showToast('Project removed', 'info');
+        await fetchPortfolio();
+        return;
+      }
+    } catch (e) {}
   }
+  state.portfolio.projects = state.portfolio.projects.filter(p => p.id !== id);
+  persistStaticState();
+  renderAll();
+  showToast('Project removed', 'info');
 };
 
 window.deleteAchievement = async function(id) {
   if (!confirm('Are you sure you want to remove this achievement?')) return;
-  try {
-    const res = await fetch(`/api/achievements/${id}`, { method: 'DELETE' });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    showToast('Achievement removed', 'info');
-    await fetchPortfolio();
-  } catch (err) {
-    showToast(err.message, 'error');
+  if (!state.isStaticMode) {
+    try {
+      const res = await fetch(`./api/achievements/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        showToast('Achievement removed', 'info');
+        await fetchPortfolio();
+        return;
+      }
+    } catch (e) {}
   }
+  state.portfolio.achievements = state.portfolio.achievements.filter(a => a.id !== id);
+  persistStaticState();
+  renderAll();
+  showToast('Achievement removed', 'info');
 };
+
+// ============================================================================
+// EXPORT & DOWNLOAD PORTFOLIO DATA (FOR COMMITTING TO GITHUB)
+// ============================================================================
+function downloadPortfolioJson() {
+  if (!state.portfolio) return;
+  const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(state.portfolio, null, 2));
+  const downloadAnchor = document.createElement('a');
+  downloadAnchor.setAttribute('href', dataStr);
+  downloadAnchor.setAttribute('download', 'portfolio.json');
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+  showToast('Downloaded portfolio.json! Drop it into data/ to commit to GitHub.', 'success');
+}
 
 // ============================================================================
 // CREDENTIAL INSPECTOR & VIEWER
@@ -921,9 +1101,9 @@ window.openCertViewer = function(certId) {
 
   let fileContent = '';
   if (cert.fileUrl) {
-    if (cert.fileUrl.endsWith('.pdf')) {
+    if (cert.fileUrl.endsWith('.pdf') || cert.fileUrl.startsWith('data:application/pdf')) {
       fileContent = `
-        <div style="margin: 1.5rem 0; height: 450px;">
+        <div style="margin: 1.25rem 0; height: 440px;">
           <iframe src="${cert.fileUrl}" style="width: 100%; height: 100%; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);"></iframe>
         </div>
       `;
@@ -933,30 +1113,29 @@ window.openCertViewer = function(certId) {
       `;
     }
   } else {
-    // Elegant authentic certificate presentation graphic
     fileContent = `
       <div class="credential-display-box">
         <div class="credential-watermark">CERTIFIED</div>
         <div class="cred-gold-seal">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="8" r="7"></circle>
             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
           </svg>
         </div>
 
-        <div style="font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-cyan); font-weight:700; margin-bottom:0.5rem;">
+        <div style="font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-cyan); font-weight:700; margin-bottom:0.4rem;">
           Verified Credential of Achievement
         </div>
 
-        <h2 style="font-size:1.75rem; font-weight:800; color:#ffffff; margin-bottom:0.75rem;">
+        <h2 style="font-size:1.55rem; font-weight:800; color:#ffffff; margin-bottom:0.6rem;">
           ${escapeHtml(cert.title)}
         </h2>
 
-        <p style="font-size:1rem; color:#cbd5e1; margin-bottom:1.5rem;">
+        <p style="font-size:0.95rem; color:#cbd5e1; margin-bottom:1.25rem;">
           Conferred upon <strong>${escapeHtml(state.portfolio?.profile?.name || 'Aditya Gupta')}</strong> by <strong>${escapeHtml(cert.issuer)}</strong>
         </p>
 
-        <div style="display:inline-flex; align-items:center; gap:1.5rem; padding:0.75rem 1.5rem; background:rgba(0,0,0,0.4); border-radius:var(--radius-pill); border:1px solid rgba(255,255,255,0.1); font-size:0.85rem;">
+        <div style="display:inline-flex; align-items:center; gap:1.25rem; padding:0.65rem 1.25rem; background:rgba(0,0,0,0.4); border-radius:var(--radius-pill); border:1px solid rgba(255,255,255,0.1); font-size:0.82rem;">
           <div>Issued: <strong style="color:#fff;">${formatDate(cert.issueDate)}</strong></div>
           <div>•</div>
           <div>Credential ID: <strong class="mono" style="color:var(--accent-cyan);">${escapeHtml(cert.credentialId)}</strong></div>
@@ -968,14 +1147,14 @@ window.openCertViewer = function(certId) {
   body.innerHTML = `
     ${fileContent}
 
-    <div style="margin-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-      <div style="font-size:0.85rem; color:var(--text-muted);">
+    <div style="margin-top:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
+      <div style="font-size:0.82rem; color:var(--text-muted);">
         Verified by <strong>${escapeHtml(cert.issuer)}</strong>
       </div>
-      <div style="display:flex; gap:0.75rem;">
+      <div style="display:flex; gap:0.65rem;">
         ${cert.fileUrl ? `
-          <a href="${cert.fileUrl}" download class="btn btn-secondary btn-sm">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <a href="${cert.fileUrl}" download="certificate-${cert.id}" class="btn btn-secondary btn-sm">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -997,8 +1176,17 @@ window.openCertViewer = function(certId) {
 };
 
 // ============================================================================
-// UTILITY FUNCTIONS
+// UTILITIES
 // ============================================================================
+function readFileAsDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 window.copyToClipboard = function(text) {
   if (!text) return;
   navigator.clipboard.writeText(text).then(() => {
@@ -1016,10 +1204,10 @@ function showToast(message, type = 'info') {
   toast.className = `toast toast-${type}`;
 
   const iconSvg = type === 'success'
-    ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>`
+    ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>`
     : type === 'error'
-    ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`
-    : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
+    ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`
+    : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
 
   toast.innerHTML = `
     ${iconSvg}
@@ -1027,14 +1215,11 @@ function showToast(message, type = 'info') {
   `;
 
   container.appendChild(toast);
-
-  // Trigger animation
   requestAnimationFrame(() => toast.classList.add('show'));
 
-  // Auto-dismiss
   setTimeout(() => {
     toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 3800);
+    setTimeout(() => toast.remove(), 350);
   }, 4200);
 }
 
