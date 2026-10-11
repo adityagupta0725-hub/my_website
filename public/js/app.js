@@ -91,6 +91,16 @@ function renderHero(profile) {
     if (chessEl) chessEl.textContent = profile.stats.chessFideRating || '1581';
     if (jeeAdvEl) jeeAdvEl.textContent = 'Top 1%';
   }
+
+  // Dynamic Social Links
+  if (profile.socials) {
+    if (profile.socials.github) {
+      document.querySelectorAll('a[href*="github.com"]').forEach(a => a.href = profile.socials.github);
+    }
+    if (profile.socials.linkedin) {
+      document.querySelectorAll('a[href*="linkedin.com"]').forEach(a => a.href = profile.socials.linkedin);
+    }
+  }
 }
 
 // 2. Render Education & Academic Pedigree
