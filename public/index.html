@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Gupta | Electrical Engineering @ IIT Kharagpur | Embedded Systems, Controls & Data Analytics</title>
+  <meta name="description" content="Portfolio of Aditya Gupta — Electrical Engineering undergraduate at IIT Kharagpur, maths enthusiast, competitive programmer, and embedded systems & control researcher at ARK and NSCOT.">
+  <meta name="keywords" content="Aditya Gupta, IIT Kharagpur, Electrical Engineering, Aerial Robotics Kharagpur, ARK, NSCOT, AUV, Embedded Systems, Controls, Data Analytics, Competitive Programming, Machine Learning, Chess FIDE">
+
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Design System CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Floating Navigation Bar -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" id="brand-link">
+        <span class="brand-dot"></span>
+        <span class="gradient-text">ADITYA GUPTA</span><span style="color:#94a3b8; font-size: 0.85rem; font-weight:600; margin-left:4px;">| IIT KGP</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="#hero" class="nav-link active" id="nav-item-hero">Overview</a></li>
+          <li><a href="#education" class="nav-link" id="nav-item-education">Education</a></li>
+          <li><a href="#commitments" class="nav-link" id="nav-item-commitments">Current Focus</a></li>
+          <li><a href="#certifications" class="nav-link" id="nav-item-certs">Certifications</a></li>
+          <li><a href="#projects" class="nav-link" id="nav-item-projects">Projects</a></li>
+          <li><a href="#skills" class="nav-link" id="nav-item-skills">Arsenal</a></li>
+          <li><a href="#achievements" class="nav-link" id="nav-item-achievements">Honors & Chess</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-upload-nav" id="btn-open-manage-modal" aria-label="Open Management and Upload Hub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Manage / Upload</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Hero Intro -->
+          <div class="hero-content">
+            <div class="status-pill" id="hero-availability-pill">
+              <span class="status-dot"></span>
+              <span id="hero-availability-text">IIT Kharagpur (Roll: 25EE10026) • Open for Research & Collaborations</span>
+            </div>
+
+            <h1 class="hero-title" id="hero-name-title">
+              Hi, I'm <span class="gradient-text" id="hero-name">Aditya Gupta</span>
+            </h1>
+
+            <h2 class="hero-subtitle" id="hero-tagline-text">
+              Electrical Engineering @ IIT Kharagpur | Embedded Systems & Controls | Data Analytics
+            </h2>
+
+            <p class="hero-tagline" id="hero-bio-text">
+              Mathematics enthusiast, competitive programmer, and embedded robotics engineer passionate about control theory, autonomous vehicles, and mathematical modeling. Actively building at Aerial Robotics Kharagpur (ARK) and Students' Autonomous Underwater Vehicle (SAVP / NSCOT).
+            </p>
+
+            <div class="hero-actions">
+              <a href="#certifications" class="btn btn-primary" id="btn-explore-certs">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                Certifications Hub
+              </a>
+              <a href="#commitments" class="btn btn-secondary" id="btn-explore-commitments">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                Current Commitments
+              </a>
+              <a href="#achievements" class="btn btn-secondary" id="btn-explore-honors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                Honors & Chess
+              </a>
+            </div>
+
+            <!-- Stats Matrix -->
+            <div class="hero-stats-row" id="stats-counter-row">
+              <div class="stat-item">
+                <div class="stat-value gradient-text" id="stat-jee">AIR 896</div>
+                <div class="stat-label">JEE Mains (Top 0.05%)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value gradient-text" id="stat-cgpa">8.49</div>
+                <div class="stat-label">IIT KGP CGPA</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value gradient-text" id="stat-chess">1581</div>
+                <div class="stat-label">FIDE Chess Rating</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value gradient-text" id="stat-jeeadv">Top 1%</div>
+                <div class="stat-label">JEE Advanced</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Hero: Current Position Spotlight Card -->
+          <div class="hero-card-side">
+            <div class="glass-panel position-card" id="current-position-card">
+              <div class="position-header">
+                <span class="position-badge" id="position-status-badge">Current Research & Roles</span>
+                <button class="btn-edit-position" id="btn-quick-edit-position" title="Update Current Role">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                  </svg>
+                  Edit Role
+                </button>
+              </div>
+
+              <h3 class="position-role" id="display-pos-role">Embedded System Engineer & Researcher</h3>
+              <div class="position-company" id="display-pos-company">
+                <span>Aerial Robotics Kharagpur (ARK) & NSCOT (AUV)</span>
+                <span class="position-period" id="display-pos-period">• Aug 2025 - Present</span>
+              </div>
+
+              <div class="position-focus" id="display-pos-focus">
+                Embedded Firmware, Control Loops, Sensor Fusion, ROS2, and Real-Time Autonomous Navigation
+              </div>
+
+              <div class="position-meta">
+                <div class="position-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span id="display-pos-location">IIT Kharagpur, India</span>
+                </div>
+                <div class="position-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span id="display-pos-status">Engineering Autonomous Aerial & Underwater Systems</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & ACADEMIC PEDIGREE SECTION -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-tag">Academic Foundation</span>
+            <h2 class="section-title">Education & Academic Pedigree</h2>
+            <p class="section-desc">Rigorous engineering and mathematical foundations from IIT Kharagpur.</p>
+          </div>
+        </div>
+
+        <div class="education-grid" id="education-container">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT COMMITMENTS & ONGOING WORK SECTION -->
+    <section class="section" id="commitments">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-tag">Active Research & Leadership</span>
+            <h2 class="section-title">Current Commitments & Projects</h2>
+            <p class="section-desc">Autonomous robotics, subsea navigation stacks, and student society leadership in progress.</p>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-add-commitment-trigger">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add New Commitment
+          </button>
+        </div>
+
+        <div class="commitments-grid" id="commitments-container">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & VERIFIED CREDENTIALS HUB -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-tag">Verified Credentials</span>
+            <h2 class="section-title">Professional Certifications</h2>
+            <p class="section-desc">Validated qualifications in Machine Learning, Data Analytics, and Systems Engineering. Upload new certificates anytime.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-upload-cert-hero">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Upload / Add Certificate
+          </button>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="cert-controls-bar">
+          <div class="filter-pills" id="cert-filter-pills">
+            <button class="filter-btn active" data-category="all">All Certifications</button>
+            <button class="filter-btn" data-category="AI & Analytics">AI & Analytics</button>
+            <button class="filter-btn" data-category="Controls & Robotics">Controls & Robotics</button>
+            <button class="filter-btn" data-category="Data & Architecture">Data & Architecture</button>
+          </div>
+
+          <div class="cert-search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="cert-search-input" placeholder="Search certifications by skill or title..." aria-label="Search certifications">
+          </div>
+        </div>
+
+        <!-- Certifications Cards Grid -->
+        <div class="certs-grid" id="certifications-container">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS & ANALYTICAL WORK -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-tag">Engineering & Modeling Showcase</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-desc">Econometric market analysis, real-time cryptocurrency forecasting, railway delay optimization, and autonomous underwater navigation.</p>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-add-project-trigger">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add Project
+          </button>
+        </div>
+
+        <div class="projects-grid" id="projects-container">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL ARSENAL & SKILLS MATRIX -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-tag">Mathematical & Technical Stack</span>
+            <h2 class="section-title">Technical Arsenal</h2>
+            <p class="section-desc">Comprehensive competencies across Mathematics, Data Analytics, Controls, Embedded Firmware, and Competitive Programming.</p>
+          </div>
+        </div>
+
+        <div class="skills-grid" id="skills-container">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- HONORS, ACHIEVEMENTS & CHESS -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-tag">Competitive Milestones</span>
+            <h2 class="section-title">Honors, Achievements & Chess</h2>
+            <p class="section-desc">National competitive examination excellence, FIDE chess achievements, and academic honors.</p>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-add-achievement-trigger">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add Achievement
+          </button>
+        </div>
+
+        <div class="achievements-grid" id="achievements-container">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER & CONTACT -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="gradient-text">Let's Connect & Collaborate</h3>
+          <p>
+            Always eager to explore research in autonomous robotics, control systems, mathematical modeling, data analytics, and high-impact engineering challenges.
+          </p>
+          <div class="social-links" id="footer-social-links">
+            <a href="https://linkedin.com/in/adityagupta" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="mailto:adityagupta.0725@kgpian.iitkgp.ac.in" class="social-link-btn" title="Email Direct">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a href="https://github.com/adityagupta" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-contact-box">
+          <h4>Direct Communication</h4>
+          <p>Aditya Gupta • 1st Year UG, Electrical Engineering, IIT Kharagpur (25EE10026)</p>
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <a href="mailto:adityagupta.0725@kgpian.iitkgp.ac.in" class="btn btn-emerald" style="width:100%">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              adityagupta.0725@kgpian.iitkgp.ac.in
+            </a>
+            <a href="tel:+916261586693" class="btn btn-secondary" style="width:100%">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              +91 6261586693
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© <span id="current-year">2026</span> Aditya Gupta (25EE10026) • IIT Kharagpur. Full Stack Node.js Platform.</div>
+        <div>Built with sub-second performance & extensible credential upload pipeline.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       INTERACTIVE MANAGEMENT & UPLOAD MODAL
+       ====================================================================== -->
+  <div class="modal-overlay" id="manage-modal" role="dialog" aria-modal="true" aria-labelledby="modal-main-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-main-title">Portfolio Control Hub</h3>
+        <button class="modal-close-btn" id="btn-close-manage-modal" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Tabs inside Modal -->
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="tab-upload-cert">Upload Certificate</button>
+        <button class="tab-btn" data-tab="tab-edit-position">Current Position</button>
+        <button class="tab-btn" data-tab="tab-add-commitment">Add Commitment</button>
+        <button class="tab-btn" data-tab="tab-add-project">Add Project</button>
+        <button class="tab-btn" data-tab="tab-add-achievement">Add Achievement</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- TAB 1: UPLOAD CERTIFICATE FORM -->
+        <div class="tab-pane active" id="tab-upload-cert">
+          <form id="form-upload-cert" enctype="multipart/form-data">
+            <div class="form-group">
+              <label class="form-label" for="cert-file-input">Certificate Document / Image File</label>
+              <div class="file-upload-dropzone" id="cert-dropzone">
+                <input type="file" id="cert-file-input" name="certificateFile" class="file-input-hidden" accept="image/*,.pdf">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-cyan); margin-bottom:0.5rem;">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p style="font-size:0.9rem; font-weight:600; color:#fff;">Click or drag & drop certificate here</p>
+                <p style="font-size:0.75rem; color:var(--text-dim); margin-top:0.25rem;">Supports PNG, JPG, WEBP, SVG or PDF (Up to 20MB)</p>
+              </div>
+
+              <!-- Preview thumbnail -->
+              <div class="file-upload-preview" id="cert-file-preview">
+                <img src="" alt="Certificate Preview" class="preview-thumb" id="cert-preview-img">
+                <div class="preview-details">
+                  <div class="preview-filename" id="cert-preview-name">file.png</div>
+                  <div class="preview-filesize" id="cert-preview-size">0 KB</div>
+                </div>
+                <button type="button" class="btn-remove-file" id="btn-cert-clear-file" title="Remove file">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cert-title-input">Certificate Title *</label>
+                <input type="text" id="cert-title-input" name="title" class="form-input" placeholder="e.g. Machine Learning Specialization, Google AI..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cert-issuer-input">Issuing Authority / Organization *</label>
+                <input type="text" id="cert-issuer-input" name="issuer" class="form-input" placeholder="e.g. DeepLearning.AI, Stanford, Google" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cert-category-select">Category</label>
+                <select id="cert-category-select" name="category" class="form-select">
+                  <option value="AI & Analytics">AI & Analytics</option>
+                  <option value="Controls & Robotics">Controls & Robotics</option>
+                  <option value="Data & Architecture">Data & Architecture</option>
+                  <option value="Full Stack">Full Stack</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cert-badge-select">Badge Icon Style</label>
+                <select id="cert-badge-select" name="badgeIcon" class="form-select">
+                  <option value="default">Default Seal</option>
+                  <option value="gcp">Google Cloud / Google AI</option>
+                  <option value="meta">Meta</option>
+                  <option value="aws">AWS Cloud</option>
+                  <option value="kubernetes">Kubernetes (CNCF)</option>
+                  <option value="mongodb">MongoDB</option>
+                  <option value="nodejs">Node.js</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cert-issue-date">Issue Date</label>
+                <input type="date" id="cert-issue-date" name="issueDate" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cert-expiry-date">Expiration Date</label>
+                <input type="text" id="cert-expiry-date" name="expiryDate" class="form-input" placeholder="YYYY-MM-DD or 'No Expiration'">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cert-id-input">Credential ID</label>
+                <input type="text" id="cert-id-input" name="credentialId" class="form-input" placeholder="e.g. STAN-ML-982140">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cert-url-input">Credential Verification URL</label>
+                <input type="url" id="cert-url-input" name="credentialUrl" class="form-input" placeholder="https://coursera.org/verify/...">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cert-skills-input">Associated Skills & Concepts (Comma-separated)</label>
+              <input type="text" id="cert-skills-input" name="skills" class="form-input" placeholder="e.g. Supervised Learning, Logistic Regression, Cost Function">
+            </div>
+
+            <div class="modal-footer" style="padding:1rem 0 0 0; background:transparent;">
+              <button type="submit" class="btn btn-primary" id="btn-submit-cert">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Publish Certificate
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 2: UPDATE CURRENT POSITION -->
+        <div class="tab-pane" id="tab-edit-position">
+          <form id="form-edit-position">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-pos-role">Research / Job Role *</label>
+                <input type="text" id="input-pos-role" name="role" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-pos-company">Team / Lab / Organization *</label>
+                <input type="text" id="input-pos-company" name="company" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-pos-period">Period / Tenure</label>
+                <input type="text" id="input-pos-period" name="period" class="form-input" placeholder="Aug 2025 - Present">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-pos-location">Location</label>
+                <input type="text" id="input-pos-location" name="location" class="form-input" placeholder="IIT Kharagpur, India">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-pos-status">Current Status Banner</label>
+              <input type="text" id="input-pos-status" name="status" class="form-input" placeholder="Engineering Autonomous Aerial & Underwater Systems">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-pos-focus">Core Technical Focus</label>
+              <textarea id="input-pos-focus" name="focus" class="form-textarea" placeholder="Embedded Firmware, Control Loops, Sensor Fusion, ROS2, and Real-Time Autonomous Navigation"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-pos-avail">Availability & Aspirations</label>
+              <input type="text" id="input-pos-avail" name="availability" class="form-input" placeholder="Open for Research Collaborations & Technical Opportunities">
+            </div>
+
+            <div class="modal-footer" style="padding:1rem 0 0 0; background:transparent;">
+              <button type="submit" class="btn btn-primary" id="btn-save-position">
+                Save Current Position
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 3: ADD COMMITMENT / ACTIVE PROJECT -->
+        <div class="tab-pane" id="tab-add-commitment">
+          <form id="form-add-commitment">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-com-title">Initiative Title *</label>
+                <input type="text" id="input-com-title" name="title" class="form-input" placeholder="e.g. Flight Stack & Avionics" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-com-type">Organization / Group</label>
+                <input type="text" id="input-com-type" name="type" class="form-input" placeholder="Aerial Robotics Kharagpur (ARK), NSCOT...">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-com-status">Current Phase</label>
+                <input type="text" id="input-com-status" name="status" class="form-input" placeholder="Demo Round, Testing...">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-com-progress">Completion Progress (0 - 100%)</label>
+                <input type="number" id="input-com-progress" name="progress" min="0" max="100" class="form-input" value="80">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-com-target">Milestone / Target</label>
+              <input type="text" id="input-com-target" name="target" class="form-input" placeholder="e.g. IARC 2026, National Challenge Demo...">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-com-desc">Technical Scope & Description</label>
+              <textarea id="input-com-desc" name="description" class="form-textarea" placeholder="Describe the embedded firmware, controls, sensors, or algorithms..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-com-tech">Tech Stack (Comma-separated)</label>
+              <input type="text" id="input-com-tech" name="techStack" class="form-input" placeholder="ROS2, C++, Embedded Systems, MATLAB">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-com-deliv">Key Deliverables (One per line)</label>
+              <textarea id="input-com-deliv" name="deliverables" class="form-textarea" placeholder="High-frequency sensor communication protocol&#10;Microcontroller firmware watchdog&#10;Hardware-in-the-loop telemetry"></textarea>
+            </div>
+
+            <div class="modal-footer" style="padding:1rem 0 0 0; background:transparent;">
+              <button type="submit" class="btn btn-primary" id="btn-save-commitment">
+                Add Current Commitment
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 4: ADD PROJECT -->
+        <div class="tab-pane" id="tab-add-project">
+          <form id="form-add-project" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-proj-title">Project Name *</label>
+                <input type="text" id="input-proj-title" name="title" class="form-input" placeholder="e.g. Real Estate Market Analysis" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-proj-category">Category</label>
+                <select id="input-proj-category" name="category" class="form-select">
+                  <option value="Data Analytics">Data Analytics</option>
+                  <option value="Machine Learning">Machine Learning</option>
+                  <option value="Embedded & Controls">Embedded & Controls</option>
+                  <option value="Competitive Programming">Competitive Programming</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-proj-subtitle">Headline / Short Pitch</label>
+              <input type="text" id="input-proj-subtitle" name="subtitle" class="form-input" placeholder="e.g. Predictive econometric modeling and statistical analysis">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-proj-desc">Detailed Description</label>
+              <textarea id="input-proj-desc" name="description" class="form-textarea" placeholder="Detail the mathematical analysis, algorithms, dataset manipulation, or control loops..."></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-proj-metrics">Quantified Impact / Metric</label>
+                <input type="text" id="input-proj-metrics" name="metrics" class="form-input" placeholder="e.g. 92.1% Accuracy | Cleaned 10k+ records">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-proj-tech">Tech Stack (Comma-separated)</label>
+                <input type="text" id="input-proj-tech" name="techStack" class="form-input" placeholder="Python, Pandas, C++, ROS2, MATLAB">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-proj-live">Demo / Report Link</label>
+                <input type="url" id="input-proj-live" name="liveUrl" class="form-input" placeholder="https://...">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-proj-github">GitHub Repository Link</label>
+                <input type="url" id="input-proj-github" name="githubUrl" class="form-input" placeholder="https://github.com/adityagupta/...">
+              </div>
+            </div>
+
+            <div class="modal-footer" style="padding:1rem 0 0 0; background:transparent;">
+              <button type="submit" class="btn btn-primary" id="btn-save-project">
+                Save Project
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 5: ADD ACHIEVEMENT -->
+        <div class="tab-pane" id="tab-add-achievement">
+          <form id="form-add-achievement">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-ach-title">Achievement Title *</label>
+                <input type="text" id="input-ach-title" name="title" class="form-input" placeholder="e.g. JEE Mains AIR 896, FIDE Rating..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-ach-category">Category</label>
+                <input type="text" id="input-ach-category" name="category" class="form-input" placeholder="National Examination, Chess, Competition...">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="input-ach-org">Awarding Body / Organization</label>
+                <input type="text" id="input-ach-org" name="organization" class="form-input" placeholder="e.g. NTA, FIDE, IIT Kharagpur">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-ach-year">Year</label>
+                <input type="text" id="input-ach-year" name="year" class="form-input" placeholder="2025">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-ach-desc">Description</label>
+              <textarea id="input-ach-desc" name="description" class="form-textarea" placeholder="Context, percentile, ratings, or rank..."></textarea>
+            </div>
+
+            <div class="modal-footer" style="padding:1rem 0 0 0; background:transparent;">
+              <button type="submit" class="btn btn-primary" id="btn-save-achievement">
+                Add Achievement
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CREDENTIAL PREVIEW & ZOOM INSPECTOR MODAL -->
+  <div class="modal-overlay" id="cert-viewer-modal" role="dialog" aria-modal="true" aria-labelledby="cert-viewer-title">
+    <div class="modal-content" style="max-width:760px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="cert-viewer-title">Verified Credential Record</h3>
+        <button class="modal-close-btn" id="btn-close-cert-viewer" aria-label="Close viewer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body" id="cert-viewer-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Application Logic -->
+  <script src="/js/app.js"></script>
+</body>
+</html>

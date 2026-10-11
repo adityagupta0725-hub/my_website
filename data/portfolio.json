@@ -1,0 +1,251 @@
+{
+  "profile": {
+    "name": "Aditya Gupta",
+    "title": "Electrical Engineering @ IIT Kharagpur | Embedded Systems & Controls | Data Analytics",
+    "tagline": "Mathematics enthusiast, competitive programmer, and embedded robotics engineer passionate about control theory, autonomous vehicles, and mathematical modeling.",
+    "bio": "Electrical Engineering undergraduate at the Indian Institute of Technology Kharagpur (IIT KGP). Passionate about the intersection of rigorous mathematical analysis, embedded systems & control algorithms, and data-driven intelligence. Actively engineering autonomous navigation and aerial systems at Aerial Robotics Kharagpur (ARK) and Students' Autonomous Underwater Vehicle (SAVP/NSCOT).",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    "currentPosition": {
+      "role": "Embedded System Engineer & Researcher",
+      "company": "Aerial Robotics Kharagpur (ARK) & NSCOT (AUV), IIT Kharagpur",
+      "status": "Engineering Autonomous Aerial & Underwater Systems",
+      "period": "Aug 2025 - Present",
+      "focus": "Embedded Firmware, Control Loops, Sensor Fusion, ROS2, and Real-Time Autonomous Navigation",
+      "location": "IIT Kharagpur, India",
+      "availability": "Open for Research Collaborations & Technical Opportunities"
+    },
+    "education": [
+      {
+        "institution": "Indian Institute of Technology Kharagpur (IIT Kharagpur)",
+        "degree": "B.Tech in Electrical Engineering",
+        "period": "2025 - 2029",
+        "score": "CGPA: 8.49 / 10",
+        "details": "Core coursework: Linear Algebra, Probability & Statistics, Multivariable Calculus, Signals & Systems, Circuit Theory."
+      },
+      {
+        "institution": "ECS Bagless School, Gwalior",
+        "degree": "Class XII (CBSE)",
+        "period": "2025",
+        "score": "93.60%",
+        "details": "Physics, Chemistry, Mathematics (PCM) specialization."
+      },
+      {
+        "institution": "LAHS, Gwalior",
+        "degree": "Class X (CBSE)",
+        "period": "2023",
+        "score": "97.40%",
+        "details": "Academic excellence awardee."
+      }
+    ],
+    "socials": {
+      "github": "https://github.com/adityagupta0725-hub",
+      "linkedin": "https://www.linkedin.com/in/aditya-gupta-72884637b/",
+      "email": "adityagupta.0725@kgpian.iitkgp.ac.in",
+      "phone": "+91 6261586693"
+    },
+    "stats": {
+      "jeeMainsRank": "AIR 896 (Top 0.05%)",
+      "cgpa": "8.49 / 10",
+      "chessFideRating": "1581 (Standard)",
+      "certifications": "2"
+    },
+    "skills": {
+      "mathsAnalytics": [
+        "Linear Algebra & Vector Spaces",
+        "Probability & Statistics",
+        "Multivariable Calculus",
+        "Data Analytics (Pandas, NumPy)",
+        "Correlation Analysis & Hypothesis Testing",
+        "Data Visualizations (Matplotlib, Seaborn)",
+        "Predictive Modeling & Regression"
+      ],
+      "embeddedControls": [
+        "Embedded C / C++",
+        "Control Systems & Feedback Loops",
+        "ROS2 (Robot Operating System)",
+        "MATLAB & Simulink",
+        "Sensor Fusion & Flow Dynamics",
+        "Hardware Interfaces (UART, I2C, SPI)",
+        "Power Management & PCB Integration",
+        "SolidWorks (CAD)"
+      ],
+      "programmingTools": [
+        "Python (Data Analysis & ML)",
+        "C / C++ (Algorithms & Firmware)",
+        "Competitive Programming",
+        "Node.js & Full Stack Web",
+        "Git & Version Control",
+        "Linux / Shell Scripting",
+        "MS Excel (Advanced Modeling)",
+        "Canva & Technical Presentations"
+      ]
+    }
+  },
+  "commitments": [
+    {
+      "id": "commit-1",
+      "title": "Autonomous Flight Stack & Embedded Firmware",
+      "type": "Aerial Robotics Kharagpur (ARK)",
+      "status": "Active Research & Testing",
+      "progress": 82,
+      "target": "International Aerial Robotics Competition (IARC)",
+      "description": "Developing embedded avionics, low-latency sensor telemetry, and robust state-estimation loops for indigenous autonomous aerial vehicles in collaboration with global research bodies (such as Max Planck Institute on projects like Telekyb).",
+      "techStack": ["ROS2", "C++", "Embedded Systems", "MATLAB", "State Estimation"],
+      "deliverables": [
+        "High-frequency sensor communication protocol stack",
+        "Real-time microcontroller firmware and fail-safe watchdog",
+        "Hardware-in-the-loop (HIL) telemetry interface"
+      ]
+    },
+    {
+      "id": "commit-2",
+      "title": "Autonomous Underwater Vehicle (AUV) Navigation & Sensors",
+      "type": "NSCOT, Students' Autonomous Underwater Vehicle",
+      "status": "Selected for Demo Round (PDR & CDR Cleared)",
+      "progress": 88,
+      "target": "National Ocean Technology Challenge Demo",
+      "description": "Selected to the demonstration round of the National Student Challenge Programme in Ocean Technology after successful Preliminary Design Report (PDR) and Critical Design Review (CDR). Focused on sensors integration, fluid flow dynamics, power management, and navigation protocols.",
+      "techStack": ["Embedded C++", "Flow Sensors", "Navigation Protocols", "Power Management", "ROS2"],
+      "deliverables": [
+        "Hydrodynamic sensor fusion & flow telemetry",
+        "Subsea low-noise power distribution architecture",
+        "Acoustic/inertial navigation protocol validation"
+      ]
+    },
+    {
+      "id": "commit-3",
+      "title": "Consulting Guesstimate & Soft Skills Operations",
+      "type": "Associate | Communiqué, IIT Kharagpur",
+      "status": "Ongoing Leadership",
+      "progress": 95,
+      "target": "Global MUN 2026 & TSG Initiatives",
+      "description": "Scaled Global MUN to 200+ nationwide delegates (+65% YoY growth). Co-created the acclaimed 75+ question Guesstimate Handbook for consulting aspirants and drove a 200% surge in sponsorships via high-impact corporate partnerships.",
+      "techStack": ["Strategic Guesstimates", "Public Relations", "Corporate Sponsorships", "Event Leadership"],
+      "deliverables": [
+        "Published 75+ Question Guesstimate Handbook",
+        "Managed 200+ delegate logistics and sponsor relations",
+        "Delivered 100% growth in strategic club partnerships"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "title": "Machine Learning Specialization",
+      "issuer": "DeepLearning.AI & Stanford University (Andrew Ng)",
+      "category": "AI & Analytics",
+      "issueDate": "2025-08-10",
+      "expiryDate": "No Expiration",
+      "credentialId": "STAN-ML-982140",
+      "credentialUrl": "https://www.coursera.org/specializations/machine-learning-introduction",
+      "fileUrl": "",
+      "badgeIcon": "default",
+      "skills": ["Supervised Learning", "Linear & Logistic Regression", "Neural Networks", "Gradient Descent", "Cost Function Optimization"]
+    },
+    {
+      "id": "cert-2",
+      "title": "Google AI for Data Analytics",
+      "issuer": "Google",
+      "category": "AI & Analytics",
+      "issueDate": "2025-05-18",
+      "expiryDate": "No Expiration",
+      "credentialId": "GOOG-AIDA-54129",
+      "credentialUrl": "https://grow.google/certificates/data-analytics/",
+      "fileUrl": "",
+      "badgeIcon": "gcp",
+      "skills": ["Data Cleaning & Preprocessing", "Statistical Modeling", "Predictive Analytics", "Exploratory Data Analysis", "Python & SQL"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Mexican Real Estate Market Analysis: Location vs. Home Size",
+      "subtitle": "Comprehensive econometric & statistical data analysis on complex property pricing",
+      "description": "Conducted in-depth data manipulation and multivariate cleaning using Pandas DataFrame at WorldQuant University. Engineered correlation pipelines to assess how geographic location and home size drive price variances. Generated granular statistical visualizations including distribution histograms, heatmaps, and spatial scatter plots.",
+      "category": "Data Analytics",
+      "techStack": ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Statistical Analysis"],
+      "metrics": "Cleaned 10k+ property records | High correlation predictive model",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/adityagupta0725-hub",
+      "featured": true
+    },
+    {
+      "id": "proj-2",
+      "title": "Token Trend - AI Cryptocurrency Forecasting Engine",
+      "subtitle": "Real-time OHLCV feature extraction and price movement prediction for 20+ digital assets",
+      "description": "Developed Token-Trend, a machine learning forecasting engine predicting directional price fluctuations for over 20 cryptocurrencies using Logistic Regression. Built an asynchronous pipeline processing live OHLCV candlestick data feeds for sub-minute market trend inference.",
+      "category": "Machine Learning",
+      "techStack": ["Python", "Logistic Regression", "Live Data Streaming", "Scikit-learn", "OHLCV Analysis"],
+      "metrics": "Real-time streaming pipeline | 20+ Crypto Assets Analyzed",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/adityagupta0725-hub",
+      "featured": true
+    },
+    {
+      "id": "proj-3",
+      "title": "StratQuest: Indian Railways Delay Prediction & Network Optimization",
+      "subtitle": "High-precision 92.1% delay forecasting and bottleneck mitigation model (SHARE, IIT KGP)",
+      "description": "Engineered a Python-based delay prediction model achieving 92.1% accuracy by isolating track maintenance as the predominant cascading delay factor. Designed a multi-tiered rail optimization framework with automated track bifurcation and conducted a rigorous cost-benefit guesstimate for a Sand Spray adhesion system (~₹5 Lakhs/train).",
+      "category": "Data Analytics & Optimization",
+      "techStack": ["Python", "Predictive Modeling", "Optimization Theory", "Cost-Benefit Guesstimates"],
+      "metrics": "92.1% Accuracy | Cascading delay mitigation strategy",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/adityagupta0725-hub",
+      "featured": true
+    },
+    {
+      "id": "proj-4",
+      "title": "Subsea Sensor Interface & Navigation Protocol (NSCOT)",
+      "subtitle": "Autonomous Underwater Vehicle (AUV) sensor integration and telemetry stack",
+      "description": "Architected low-level sensor integration for an autonomous underwater vehicle, implementing protocol drivers for flow meters, IMUs, and pressure transducers with robust power fault tolerance.",
+      "category": "Embedded & Controls",
+      "techStack": ["Embedded C++", "ROS2", "Flow Sensors", "Serial Protocols", "Power Management"],
+      "metrics": "Selected for National Demo Round | Zero packet loss telemetry",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/adityagupta0725-hub",
+      "featured": true
+    }
+  ],
+  "achievements": [
+    {
+      "id": "ach-1",
+      "title": "JEE Mains: AIR 896 (Top 0.05% in India)",
+      "category": "National Competitive Examination",
+      "organization": "National Testing Agency (NTA)",
+      "year": "2025",
+      "description": "Ranked in the top 0.05% among over 1.2 Million aspirants nationwide in the Joint Entrance Examination (JEE) Mains."
+    },
+    {
+      "id": "ach-2",
+      "title": "JEE Advanced: Top 1% All India",
+      "category": "National Competitive Examination",
+      "organization": "Indian Institutes of Technology (IITs)",
+      "year": "2025",
+      "description": "Ranked in the top 1% among 250,000+ top qualifiers in JEE Advanced to secure admission into the prestigious Electrical Engineering department at IIT Kharagpur."
+    },
+    {
+      "id": "ach-3",
+      "title": "National Level Chess Player (FIDE ID: 25735438)",
+      "category": "Sports & Strategic Mastery",
+      "organization": "International Chess Federation (FIDE)",
+      "year": "Active",
+      "description": "Official FIDE ratings: Standard 1581, Rapid 1496. Demonstrating deep analytical foresight, calculating tactical variations, and competing at top-tier national championships."
+    },
+    {
+      "id": "ach-4",
+      "title": "U-11 CBSE West Zone Chess Champion & MP State Rank 3",
+      "category": "Sports Championship",
+      "organization": "CBSE & Madhya Pradesh Chess Association",
+      "year": "2017 - 2018",
+      "description": "Crowned Champion in the U-11 CBSE West Zone Chess Championship (2017) and secured Rank 3 in the U-17 Madhya Pradesh State Championship (2018)."
+    },
+    {
+      "id": "ach-5",
+      "title": "StratQuest Competition Finalist - 92.1% Accuracy Model",
+      "category": "Data & Strategy Competition",
+      "organization": "SHARE, IIT Kharagpur",
+      "year": "2026",
+      "description": "Developed predictive delay models and strategic bifurcation plans for Indian Railways, recognized for outstanding technical rigor and data-driven problem solving."
+    }
+  ]
+}
